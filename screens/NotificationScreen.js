@@ -1,6 +1,14 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-const NotificationScreen = () => {
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native'
+export default function NotificationScreen() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text
@@ -12,5 +20,4 @@ const NotificationScreen = () => {
     </View>
   )
 }
-
-export default NotificationScreen
+const styles = StyleSheet.create({})
