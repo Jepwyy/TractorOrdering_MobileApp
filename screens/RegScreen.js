@@ -10,14 +10,14 @@ import {
 } from 'react-native'
 
 //layout
-import MainContainer from '../layouts/MainContainer'
+import LoginScreen from './LoginScreen'
 
 //logo
 import logo from '../assets/logo.png'
 import flogo from '../assets/ficon.png'
 import glogo from '../assets/gicon.png'
 
-export default function LoginScreen({ navigation }) {
+export default function RegScreen({ navigation }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -36,19 +36,18 @@ export default function LoginScreen({ navigation }) {
     if (isLoadingIn) {
       setTimeout(() => {
         setIsLoggedIn(true)
+        alert('Account Registered!')
       }, 1000)
     }
   }, [isLoadingIn])
 
   const handleLogin = () => {
-    if (username === 'admin' && password === 'admin') {
-      setIsLoggedIn(true)
-    } else if (username === '' && password === '') {
+    if (username === '' && password === '') {
       alert('Please fill all fields')
       setIsLoading(false)
     } else {
-      alert('Invalid username or password')
-      setIsLoading(false)
+      setIsLoggedIn(true)
+      alert('Account Registered!')
     }
   }
 
@@ -61,7 +60,7 @@ export default function LoginScreen({ navigation }) {
 
   if (isLoggedIn) {
     // Redirect to the admin page
-    return <MainContainer />
+    return <LoginScreen />
   }
 
   return (
@@ -73,8 +72,8 @@ export default function LoginScreen({ navigation }) {
       {isLoadingIn && (
         <ActivityIndicator size='large' color='#FF8C00' position='absolute' />
       )}
-      <Text style={styles.title}>Login</Text>
-
+      <Text style={styles.title}>Register</Text>
+      <TextInput style={styles.input} placeholder='Name' />
       <TextInput
         style={styles.input}
         placeholder='Email'
@@ -90,20 +89,20 @@ export default function LoginScreen({ navigation }) {
       />
       <TouchableOpacity
         style={styles.buttonReg}
-        onPress={() => navigation.navigate('Register')}
+        onPress={() => navigation.navigate('Login')}
       >
         <Text style={styles.textReg}>
-          Don't have an account?
-          <Text style={{ color: '#FF8C00' }}> Sign up</Text>
+          Already have an account?
+          <Text style={{ color: '#FF8C00' }}> Login</Text>
         </Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.buttonLogin} onPress={handleButtonPress}>
-        <Text style={styles.buttonText}>LOGIN</Text>
+        <Text style={styles.buttonText}>REGISTER</Text>
       </TouchableOpacity>
 
-      <Text style={{ marginTop: 50, marginBottom: 10 }}>
-        Or login with social account
+      <Text style={{ marginTop: 40, marginBottom: 10 }}>
+        Or register with social account
       </Text>
       <View style={styles.iconContainer}>
         <TouchableOpacity style={styles.iconContainer1} onPress={handleButton}>

@@ -8,6 +8,7 @@ import MainContainer from './layouts/MainContainer'
 
 //screen
 import LoginScreen from './screens/LoginScreen'
+import RegScreen from './screens/RegScreen'
 
 const Stack = createStackNavigator()
 
@@ -20,6 +21,7 @@ export default function App() {
       >
         <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='Main' component={MainContainer} />
+        <Stack.Screen name='Register' component={RegScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )
