@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -9,6 +10,7 @@ import SearchScreen from '../screens/SearchScreen'
 import NotificationScreen from '../screens/NotificationScreen'
 import CartScreen from '../screens/CartScreen'
 import ProfileScreen from '../screens/ProfileScreen'
+import DetailsScreen from '../screens/DetailsScreen'
 
 //Screen names
 const homeName = 'Home'
@@ -17,6 +19,7 @@ const notificationName = 'Notification'
 const cartName = 'Cart'
 const profileName = 'Profile'
 
+const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
 const MainContainer = () => {

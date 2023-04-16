@@ -10,11 +10,12 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native'
-import { TopSelling, TractorsCat } from '../Data/Data'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { TopSelling, TractorsCat, AllTractors } from '../Data/Data'
 //image
 import banner from '../assets/HeaderImg.jpg'
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.Container}>
@@ -30,7 +31,7 @@ export default function HomeScreen() {
           <Text
             style={{ fontWeight: '500', fontSize: 25, textAlign: 'center' }}
           >
-            Winter is Coming
+            Summer is Coming
           </Text>
           <Text
             style={{
@@ -49,56 +50,94 @@ export default function HomeScreen() {
           </Text>
           <ScrollView horizontal={true}>
             {TopSelling.map((item) => (
-              <ImageBackground
+              <TouchableOpacity
                 key={item.id}
-                style={{
-                  width: 100,
-                  height: 100,
-                  flex: 1,
-                  justifyContent: 'flex-end',
-                  marginBottom: 15,
-                  marginHorizontal: 3,
-                }}
-                source={{ uri: item.Image }}
+                onPress={() =>
+                  navigation.navigate('Details', { tractor: item })
+                }
               >
-                <Text
+                <ImageBackground
                   style={{
-                    color: 'white',
-                    paddingLeft: 5,
-                    paddingRight: 3,
-                    paddingBottom: 5,
-                    fontWeight: '400',
+                    width: 100,
+                    height: 100,
+                    flex: 1,
+                    justifyContent: 'flex-end',
+                    marginBottom: 15,
+                    marginHorizontal: 3,
                   }}
+                  source={{ uri: item.Image }}
                 >
-                  {item.Name}
-                </Text>
-              </ImageBackground>
+                  <Text
+                    style={{
+                      color: 'white',
+                      paddingLeft: 5,
+                      paddingRight: 3,
+                      paddingBottom: 5,
+                      fontWeight: '400',
+                    }}
+                  >
+                    {item.Name}
+                  </Text>
+                </ImageBackground>
+              </TouchableOpacity>
             ))}
           </ScrollView>
         </View>
         <View style={{ width: '90%' }}>
-          <View>
-            <Image
-              source={{
-                uri: 'https://agriline.ie/img/s/wheel-tractor-JOHN-DEERE-4410---1681232869686472431_common--23041120062636951800.jpg',
-              }}
-              style={{ width: 150, height: 200 }}
-            />
-            <Text>sada</Text>
-            <Text>sasadasdda</Text>
-            <Text>saasdasdda</Text>
-          </View>
-          <View>
-            <Image
-              source={{
-                uri: 'https://agriline.ie/img/s/wheel-tractor-JOHN-DEERE-4410---1681232869686472431_common--23041120062636951800.jpg',
-              }}
-              style={{ width: 150, height: 200 }}
-            />
-            <Text>sada</Text>
-            <Text>sasadasdda</Text>
-            <Text>saasdasdda</Text>
-          </View>
+          <Text
+            style={{
+              fontWeight: '400',
+              fontSize: 25,
+              marginBottom: 5,
+              alignSelf: 'flex-start',
+            }}
+          >
+            PRODUCTS
+          </Text>
+        </View>
+
+        <View
+          style={{
+            width: '90%',
+            flex: 1,
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 3,
+          }}
+        >
+          {AllTractors.map((item1) => (
+            <TouchableOpacity
+              style={styles.Items}
+              key={item1.id}
+              onPress={() => navigation.navigate('Details', { tractor: item1 })}
+            >
+              <Image
+                source={{ uri: item1.Image }}
+                style={{ width: 175, height: 200 }}
+              />
+              <View style={{ paddingLeft: 3 }}>
+                <Text>
+                  {item1.Price.toLocaleString('en-PH', {
+                    style: 'currency',
+                    currency: 'PHP',
+                  })}
+                </Text>
+                <View
+                  style={{
+                    position: 'absolute',
+                    alignSelf: 'flex-end',
+                    right: 4,
+                  }}
+                >
+                  <Ionicons name='heart-outline' size={30} color='#FF8C00' />
+                </View>
+                <Text style={{ color: '#828282' }}>{item1.Manufacturer}</Text>
+                <Text>{item1.Name}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
         </View>
       </View>
     </ScrollView>
@@ -122,5 +161,19 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 30,
     marginLeft: 20,
+  },
+  Items: {
+    width: 175,
+
+    backgroundColor: '#FFf',
+
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 2,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 3.84,
   },
 })
