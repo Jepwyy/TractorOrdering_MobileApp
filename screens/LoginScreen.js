@@ -59,10 +59,12 @@ export default function LoginScreen({ navigation }) {
     setIsLoadingIn(true)
   }
 
-  if (isLoggedIn) {
-    // Redirect to the admin page
-    return <MainContainer />
-  }
+  useEffect(() => {
+    if (isLoggedIn) {
+      // Redirect to the admin page
+      navigation.navigate('Main', { screen: 'Home' })
+    }
+  }, [isLoggedIn, navigation])
 
   return (
     <View style={styles.container}>

@@ -92,7 +92,7 @@ export default function HomeScreen({ navigation }) {
               alignSelf: 'flex-start',
             }}
           >
-            PRODUCTS
+            NEW IN
           </Text>
         </View>
 

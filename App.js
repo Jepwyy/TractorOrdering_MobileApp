@@ -12,7 +12,7 @@ import RegScreen from './screens/RegScreen'
 import DetailsScreen from './screens/DetailsScreen'
 import CheckoutScreen from './screens/CheckoutScreen'
 import SucessScreen from './screens/SuccessScreen'
-
+import HomeScreen from './screens/HomeScreen'
 const Stack = createStackNavigator()
 
 import { CartProvider } from './shared/CartContext'
@@ -27,6 +27,7 @@ export default function App() {
         >
           <Stack.Screen name='Login' component={LoginScreen} />
           <Stack.Screen name='Tst' component={LoginScreen} />
+
           <Stack.Screen name='Success' component={SucessScreen} />
           <Stack.Screen name='Main' component={MainContainer} />
           <Stack.Screen name='Register' component={RegScreen} />
