@@ -41,8 +41,12 @@ export default function LoginScreen({ navigation }) {
   }, [isLoadingIn])
 
   const handleLogin = () => {
-    if (username === 'admin' && password === 'admin') {
+    if (username === 'client' && password === 'client') {
       setIsLoggedIn(true)
+      setIsLoading(false)
+    } else if (username === 'admin' && password === 'admin') {
+      setIsLoggedIn(true)
+      setIsLoading(false)
     } else if (username === '' && password === '') {
       alert('Please fill all fields')
       setIsLoading(false)
@@ -62,7 +66,14 @@ export default function LoginScreen({ navigation }) {
   useEffect(() => {
     if (isLoggedIn) {
       // Redirect to the admin page
-      navigation.navigate('Main', { screen: 'Home' })
+
+      if (username === 'client' && password === 'client') {
+        navigation.navigate('Main', { screen: 'Home' })
+      } else if (username === 'admin' && password === 'admin') {
+        navigation.navigate('Admin', { screen: 'Dashboard' })
+      } else {
+        navigation.navigate('Main', { screen: 'Home' })
+      }
     }
   }, [isLoggedIn, navigation])
 

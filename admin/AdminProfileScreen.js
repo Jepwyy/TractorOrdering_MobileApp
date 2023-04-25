@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   StyleSheet,
   Text,
@@ -11,10 +11,8 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-
-import dp from '../assets/dp.jpg'
-
-export default function ProfileScreen({ navigation }) {
+import dp from '../assets/dp.png'
+const AdminProfileScreen = ({ navigation }) => {
   const handleLogout = () => {
     navigation.navigate('Tst')
   }
@@ -31,65 +29,8 @@ export default function ProfileScreen({ navigation }) {
           </View>
 
           <View style={styles.row1}>
-            <Text style={styles.h1}>Abdul Joblong</Text>
-            <Text style={styles.h2}>abdul.joblong@gmail.com</Text>
-          </View>
-        </View>
-
-        <View style={styles.row}>
-          <View style={styles.row1} flex={2}>
-            <Text style={styles.h5}>My Purchases</Text>
-          </View>
-
-          <View paddingRight={'5%'}>
-            <Ionicons size={20} flex={1} name='chevron-forward'></Ionicons>
-          </View>
-        </View>
-
-        <View style={styles.rows}>
-          <View style={styles.row2} flex={1}>
-            <Ionicons size={30} name='wallet'></Ionicons>
-            <Text>To Pay</Text>
-          </View>
-          <View style={styles.row2} flex={1}>
-            <Ionicons size={30} name='boat'></Ionicons>
-            <Text>To Ship</Text>
-          </View>
-          <View style={styles.row2} flex={1}>
-            <Ionicons size={30} name='log-in'></Ionicons>
-            <Text>To Recieve</Text>
-          </View>
-        </View>
-
-        <View style={styles.rows}>
-          <View style={styles.row1} flex={2}>
-            <Text style={styles.h5}>Shipping addresses</Text>
-            <Text style={styles.h6}>2 Addresses</Text>
-          </View>
-
-          <View paddingRight={'5%'}>
-            <Ionicons
-              size={20}
-              flex={1}
-              paddingTop={8}
-              name='chevron-forward'
-            ></Ionicons>
-          </View>
-        </View>
-
-        <View style={styles.rows}>
-          <View style={styles.row1} flex={2}>
-            <Text style={styles.h5}>Payment Methods</Text>
-            <Text style={styles.h6}>Visa **89</Text>
-          </View>
-
-          <View paddingRight={'5%'}>
-            <Ionicons
-              size={20}
-              flex={1}
-              paddingTop={8}
-              name='chevron-forward'
-            ></Ionicons>
+            <Text style={styles.h1}>Abdul Maui</Text>
+            <Text style={styles.h2}>ADMIN</Text>
           </View>
         </View>
 
@@ -240,3 +181,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 })
+
+export default AdminProfileScreen

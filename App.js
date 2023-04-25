@@ -12,6 +12,7 @@ import RegScreen from './screens/RegScreen'
 import DetailsScreen from './screens/DetailsScreen'
 import CheckoutScreen from './screens/CheckoutScreen'
 import SucessScreen from './screens/SuccessScreen'
+import AdminContainer from './layouts/AdminContainer'
 import HomeScreen from './screens/HomeScreen'
 const Stack = createStackNavigator()
 
@@ -29,6 +30,7 @@ export default function App() {
           <Stack.Screen name='Tst' component={LoginScreen} />
 
           <Stack.Screen name='Success' component={SucessScreen} />
+          <Stack.Screen name='Admin' component={AdminContainer} />
           <Stack.Screen name='Main' component={MainContainer} />
           <Stack.Screen name='Register' component={RegScreen} />
           <Stack.Screen name='Details' component={DetailsScreen} />
