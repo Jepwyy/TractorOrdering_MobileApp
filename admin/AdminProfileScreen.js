@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   StyleSheet,
   Text,
@@ -12,9 +12,12 @@ import {
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import dp from '../assets/dp.png'
+import AuthContext from '../shared/AuthContext'
 const AdminProfileScreen = ({ navigation }) => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
   const handleLogout = () => {
     navigation.navigate('Tst')
+    setIsLoggedIn(false)
   }
   return (
     <View style={styles.parentContainer}>

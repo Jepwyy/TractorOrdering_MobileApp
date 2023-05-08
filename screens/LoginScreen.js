@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {
   StyleSheet,
   Text,
@@ -16,13 +16,15 @@ import MainContainer from '../layouts/MainContainer'
 import logo from '../assets/logo.png'
 import flogo from '../assets/ficon.png'
 import glogo from '../assets/gicon.png'
+import AuthContext from '../shared/AuthContext'
 
-export default function LoginScreen({ navigation }) {
+function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
   const [isLoading, setIsLoading] = useState(false)
   const [isLoadingIn, setIsLoadingIn] = useState(false)
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
 
   useEffect(() => {
     if (isLoading) {
@@ -205,3 +207,5 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
 })
+
+export default LoginScreen

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {
   StyleSheet,
   Text,
@@ -11,13 +11,16 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-
+import AuthContext from '../shared/AuthContext'
 import dp from '../assets/dp.jpg'
 
 export default function ProfileScreen({ navigation }) {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
   const handleLogout = () => {
     navigation.navigate('Tst')
+    setIsLoggedIn(false)
   }
+
   return (
     <View style={styles.parentContainer}>
       <ScrollView style={styles.scrollView}>
