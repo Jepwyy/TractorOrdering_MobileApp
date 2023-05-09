@@ -98,8 +98,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingTop: '20%',
-    marginTop: -20,
   },
   row: {
     flexDirection: 'row',

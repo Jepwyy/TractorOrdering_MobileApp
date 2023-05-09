@@ -43,7 +43,7 @@ export default function CheckoutScreen({ route, navigation }) {
         style={{
           borderWidth: 1,
           borderColor: '#828282',
-          paddingTop: 40,
+          paddingTop: 0,
           display: 'flex',
           alignItems: 'center',
 

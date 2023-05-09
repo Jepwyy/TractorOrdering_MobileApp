@@ -49,8 +49,8 @@ export default function SearchScreen({ navigation }) {
       <View
         style={{
           borderWidth: 1,
-          borderColor: '#828282',
-          paddingTop: 40,
+          borderColor: '#fff',
+          paddingTop: 0,
           display: 'flex',
           alignItems: 'center',
 
